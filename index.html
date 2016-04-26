@@ -125,16 +125,16 @@ $ git &lt;verb&gt; --help</pre>
 					<img src="images/lifecycle_step-3.png" class="stretch" alt="">
 				</section>
 				<section>
-                    <h2>Geänderte Dateien anzeigen</h2>
-                    <pre>$ git status</pre>
-                </section>
-                <section>
-                    <h2>Änderungen vergleichen</h2>
-                    <pre>$ git diff</pre>
-                    <pre>$ git difftool</pre>
-                </section>
-                <section>
-                    <h2>Änderungen stagen und committen</h2>
+					<h2>Geänderte Dateien anzeigen</h2>
+					<pre>$ git status</pre>
+				</section>
+				<section>
+					<h2>Änderungen vergleichen</h2>
+					<pre>$ git diff</pre>
+					<pre>$ git difftool</pre>
+				</section>
+				<section>
+					<h2>Änderungen stagen und committen</h2>
 					<pre>$ git add file-1.txt
 $ git commit -m "changed file"</pre>
 					<pre>$ git commit -am "changed file"</pre>
@@ -296,20 +296,15 @@ $ git merge develop</pre></li>
 						<li class="alert">Kein pull verwenden</li>
 						<li>Erst fetchen (
 							<span class="highlight">git fetch</span>)</li>
-						<li>Anschließend mergen (
-							<span class="highlight">git merge --ff-only</span>)</li>
-						<ul>
-							<li>Bei Fehlschlag (Fast-Forward nicht möglich):
-								<span class="highlight">git rebase</span>
-							</li>
-							<li>Bei Merge-Konflikten:
-								<span class="highlight">git mergetool</span>
-								<ul>
-									<li>Anschließend
-										<span class="highlight">git rebase --continue</span> aufrufen</li>
-								</ul>
-							</li>
-						</ul>
+						<li>Anschließend rebasen (
+							<span class="highlight">git rebase</span>)</li>
+						<li>Bei Merge-Konflikten:
+							<span class="highlight">git mergetool</span>
+							<ul>
+								<li>Anschließend
+									<span class="highlight">git rebase --continue</span> aufrufen</li>
+							</ul>
+						</li>
 					</ul>
 					</ul>
 				</section>
