@@ -1,476 +1,526 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
 
-	<title>Git Basics</title>
+    <title>Git Basics</title>
 
-	<meta name="description" content="Git Basics">
-	<meta name="author" content="Thomas Klepzig">
+    <meta name="description" content="Git Basics">
+    <meta name="author" content="Thomas Klepzig">
 
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/black.css" id="theme">
-	<link rel="stylesheet" href="css/override.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/override.css">
 
-	<!-- Code syntax highlighting -->
-	<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-	<style>
-		.reveal section img {
-			background: none;
-			border: none;
-			box-shadow: none;
-		}
+    <style>
+        .reveal section img {
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
 
-		.reveal section h1,
-		.reveal section h2 {
-			color: #e25d45;
-		}
+        .reveal section h1,
+        .reveal section h2 {
+            color: #e25d45;
+        }
 
-		.reveal pre {
-			font-size: 1em;
-			width: auto;
-			padding: 15px;
-			word-wrap: break-word;
-			overflow: auto;
-			background-color: #3F3F3F;
-			color: white;
-		}
-	</style>
+        .reveal pre {
+            font-size: 1em;
+            width: auto;
+            padding: 15px;
+            word-wrap: break-word;
+            overflow: auto;
+            background-color: #3F3F3F;
+            color: white;
+        }
+    </style>
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
 
-	<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
 </head>
 
 <body>
 
-	<div class="reveal">
-		<!-- Any section element inside of this container is displayed as a slide -->
-		<div class="slides">
-			<section>
-				<div>
-					<img src="images/git-logo.png" alt="Git Logo" style="width: 400px;">
-				</div>
-				<p>
-					Commit often,
-					<br>perfect later,
-					<br>publish once
-				</p>
-			</section>
-			<section>
-				<section>
-					<h1>Centralized
-						<br>vs.
-						<br>Distributed</h1>
-				</section>
-				<section>
-					<img src="images/centralized.png" alt="">
-				</section>
-				<section>
-					<img src="images/distributed.png" class="stretch" alt="">
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Git Bash</h1>
-				</section>
-				<section>
-					<pre>$ git &lt;verb&gt;</pre>
-					<pre>$ git help &lt;verb&gt;
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <div>
+                    <img src="images/git-logo.png" alt="Git Logo" style="width: 400px;">
+                </div>
+                <p>
+                    Commit often,
+                    <br>perfect later,
+                    <br>publish once
+                </p>
+            </section>
+            <section>
+                <section>
+                    <h1>
+                        Centralized
+                        <br>vs.
+                        <br>Distributed
+                    </h1>
+                </section>
+                <section>
+                    <img src="images/centralized.png" alt="">
+                </section>
+                <section>
+                    <img src="images/distributed.png" class="stretch" alt="">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Git Bash</h1>
+                </section>
+                <section>
+                    <pre>$ git &lt;verb&gt;</pre>
+                    <pre>$ git help &lt;verb&gt;
 $ git &lt;verb&gt; --help</pre>
-				</section>
-			</section>
+                </section>
+            </section>
 
 
 
-			<section>
-				<section>
-					<h1>Mit Git arbeiten</h1>
-				</section>
-				<section>
-					<pre>$ git init</pre>
-					<pre>$ touch file-1.txt</pre>
-					<pre>$ git add file-1.txt</pre>
-				</section>
-				<section>
-					<img src="images/lifecycle_step-1.png" class="stretch" alt="">
-				</section>
-				<section>
-					<pre>$ git commit -m "first commit"</pre>
-				</section>
-				<section>
-					<img src="images/lifecycle_step-2.png" class="stretch" alt="">
-				</section>
-				<section>
-					<pre>$ echo "42" > file-1.txt</pre>
-					<p>&rarr; Git erkennt Änderungen anhand des Dateiinhalts</p>
-				</section>
-				<section>
-					<img src="images/lifecycle_step-3.png" class="stretch" alt="">
-				</section>
-				<section>
-					<h2>Geänderte Dateien anzeigen</h2>
-					<pre>$ git status</pre>
-				</section>
-				<section>
-					<h2>Änderungen vergleichen</h2>
-					<pre>$ git diff</pre>
-					<pre>$ git difftool</pre>
-				</section>
-				<section>
-					<h2>Änderungen stagen und committen</h2>
-					<pre>$ git add file-1.txt
+            <section>
+                <section>
+                    <h1>Mit Git arbeiten</h1>
+                </section>
+                <section>
+                    <pre>$ git init</pre>
+                    <pre>$ touch file-1.txt</pre>
+                    <pre>$ git add file-1.txt</pre>
+                </section>
+                <section>
+                    <img src="images/1_git_init.png" class="left" alt="" />
+                    <img src="images/2_git_add_things_txt.png" class="right" />
+                </section>
+                <section>
+                    <img src="images/lifecycle_step-1.png" class="stretch" alt="">
+                </section>
+                <section>
+                    <pre>$ git commit -m "first commit"</pre>
+                </section>
+                <section>
+                    <img src="images/3_git_commit_thing_txt.png" class="center" />
+                </section>
+                <section>
+                    <img src="images/lifecycle_step-2.png" class="stretch" alt="">
+                </section>
+                <section>
+                    <pre>$ echo "42" > file-1.txt</pre>
+                    <p>&rarr; Git erkennt Änderungen anhand des Dateiinhalts</p>
+                </section>
+                <section>
+                    <img src="images/lifecycle_step-3.png" class="stretch" alt="">
+                </section>
+                <section>
+                    <h2>Geänderte Dateien anzeigen</h2>
+                    <pre>$ git status</pre>
+                </section>
+                <section>
+                    <img src="images/9_git_status.png" class="stretch" />
+                </section>
+                <section>
+                    <h2>Änderungen vergleichen</h2>
+                    <pre>$ git diff</pre>
+                    <pre>$ git difftool</pre>
+                </section>
+                <section>
+                    <img src="images/10_compare_with_unmodified.png" class="left" alt="" />
+                    <img src="images/11_compare_files.png" class="right" />
+                </section><section>
+                    <h2>Änderungen stagen und committen</h2>
+                    <pre>$ git add file-1.txt
 $ git commit -m "changed file"</pre>
-					<pre>$ git commit -am "changed file"</pre>
-				</section>
-				<section>
-					<img src="images/lifecycle_step-4.png" class="stretch" alt="">
-				</section>
-				<section>
-					<h2>Staging Area</h2>
-					<pre>$ git add [-p|--patch] file-1.txt</pre>
-					<pre>$ git reset file-1.txt</pre>
-				</section>
-				<section>
-					<h2>History anzeigen</h2>
-					<pre>$ git log</pre>
-					<pre>$ git l</pre>
-				</section>
-				<section>
-					<h2>Tags</h2>
-					<ul>
-						<li>Entspricht einem <i>Label</i> im TFVC</li>
-						<li><pre>$ git tag v1.0.0</pre></li>
-					</ul>
-				</section>
-				<section>
-					<h2>Stash</h2>
-					<ul>
-						<li>Ist änhlich dem <i>Shelven</i> im TFVC</li>
-						<li><pre>$ git stash</pre></li>
-						<li><pre>$ git stash pop</pre></li>
-						<p class="alert">&rarr; Existiert nur lokal</p>
-					</ul>
-				</section>
-			</section>
+                    <pre>$ git commit -am "changed file"</pre>
+                </section>
+                <section>
+                    <img src="images/12_commit_am.png" class="left" />
+                    <img src="images/13_stage_file.png" class="right" />
+                </section>
+                <section>
+                    <img src="images/lifecycle_step-4.png" class="stretch" alt="">
+                </section>
+                <section>
+                    <h2>Staging Area</h2>
+                    <pre>$ git add [-p|--patch] file-1.txt</pre>
+                    <pre>$ git reset file-1.txt</pre>
+                </section>
+                <section>
+                    <h2>History anzeigen</h2>
+                    <pre>$ git log</pre>
+                    <pre>$ git l</pre>
+                </section>
+                <section>
+                    <h2>Tags</h2>
+                    <ul>
+                        <li>Entspricht einem <i>Label</i> im TFVC</li>
+                        <li><pre>$ git tag v1.0.0</pre></li>
+                    </ul>
+                </section>
+                <section>
+                    <img src="images/14_create_tag.png" />
+                </section>
+                <section>
+                    <h2>Stash</h2>
+                    <ul>
+                        <li>Ist ähnlich dem <i>Shelven</i> im TFVC</li>
+                        <li><pre>$ git stash</pre></li>
+                        <li><pre>$ git stash pop</pre></li>
+                        <p class="alert">&rarr; Existiert nur lokal</p>
+                    </ul>
+                </section>
+            </section>
 
 
 
-			<section>
-				<section>
-					<h1>Branching</h1>
-				</section>
-				<section>
-					<h2>Branches sind nur Zeiger</h2>
-				</section>
-				<section>
-					<h2>Ein Repository ist immer nur im Kontext eines Branches</h2>
-				</section>
-				<section>
-					<h2>Warum &amp; wozu?</h2>
-				</section>
-				<section>
-					<ul>
-						<li>Produktive, funktionierende Version gewährleisten</li>
-						<li class="fragment">Dinge ausprobieren, ohne den vorhandenen Code zu gefährden</li>
-						<li class="fragment">Einzelne Features bzw. Programmteile im Entwicklungsprozess isolieren</li>
-						<li class="fragment">...</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Branches benennen</h2>
-				</section>
-				<section>
-					<ul>
-						<li>Darf kein ASCII Steuerzeichen enthalten</li>
-						<li class="fragment">Keines der folgenden Zeichen darf vorkommen: Leerzeichen, Tilde (~), Caret (^), Doppelpunkt, Fragezeichen, Asterisk
-							(*), Öffnende eckige Klammer ([)</li>
-						<li class="fragment">Darf kein Backslash enthalten</li>
-					</ul>
-					<p class="fragment">Vollständige Liste: <a href="https://www.kernel.org/pub/software/scm/git/docs/git-check-ref-format.html">git-check-ref-format Manual Page</a></p>
-				</section>
-				<section>
-					<ul>
-						<li>Nutzerverwaltung</li>
-						<li class="fragment">ValidierungBeiPasswortAenderung</li>
-						<li class="fragment">103279</li>
-						<li class="fragment">HochgeladeneDateiMaximal5MB</li>
-						<li class="fragment">GesperrterNutzerWirdNichtNach5MinutenEntsperrt</li>
-					</ul>
-				</section>
-				<section data-background="https://i.imgur.com/iWKad22.jpg">
-				</section>
-				<section>
-					<h2>Besser</h2>
-					<ul>
-						<li>Kurze und prägnante Namen</li>
-						<li class="fragment">Hierarchische Bezeichnungen</li>
-						<li class="fragment">Keine bloße Zahl</li>
-						<li class="fragment">CamelCase vermeiden, Wörter mit Minus trennen</li>
-					</ul>
-				</section>
-				<section>
-					<ul>
-						<li>feature/nutzerverwaltung</li>
-						<li class="fragment">bugfix/validiere-passwort</li>
-						<li class="fragment">release/v1.0.0</li>
-						<li class="fragment">junk/ovale-buttons</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Warum den Slash als Hierarchie-Trenner?</h3>
-					<ul>
-						<li>Git behandelt die Hierarchie als Verzeichnisse</li>
-						<li>Auto Complete in der Bash ist schneller</li>
-						<li>Versch. grafische Tools (bspw. SourceTree) stellen die Branches ebenfalls als Ordner dar</li>
-					</ul>
-				</section>
-				<section>
-					<p>Alles nur Best Practices, wenn es einem gar nicht zusagt, kann man es auch komplett anders machen</p>
-				</section>
-				<section>
-					<h2>Mit Branches arbeiten</h2>
-				</section>
-				<section>
-					<pre>$ git branch develop
+            <section>
+                <section>
+                    <h1>Branching</h1>
+                </section>
+                <section>
+                    <h2>Branches sind nur Zeiger</h2>
+                </section>
+                <section>
+                    <h2>Ein Repository ist immer nur im Kontext eines Branches</h2>
+                </section>
+                <section>
+                    <h2>Warum &amp; wozu?</h2>
+                </section>
+                <section>
+                    <ul>
+                        <li>Produktive, funktionierende Version gewährleisten</li>
+                        <li class="fragment">Dinge ausprobieren, ohne den vorhandenen Code zu gefährden</li>
+                        <li class="fragment">Einzelne Features bzw. Programmteile im Entwicklungsprozess isolieren</li>
+                        <li class="fragment">...</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Branches benennen</h2>
+                </section>
+                <section>
+                    <ul>
+                        <li>Darf kein ASCII Steuerzeichen enthalten</li>
+                        <li class="fragment">
+                            Keines der folgenden Zeichen darf vorkommen: Leerzeichen, Tilde (~), Caret (^), Doppelpunkt, Fragezeichen, Asterisk
+                            (*), Öffnende eckige Klammer ([)
+                        </li>
+                        <li class="fragment">Darf kein Backslash enthalten</li>
+                    </ul>
+                    <p class="fragment">Vollständige Liste: <a href="https://www.kernel.org/pub/software/scm/git/docs/git-check-ref-format.html">git-check-ref-format Manual Page</a></p>
+                </section>
+                <section>
+                    <ul>
+                        <li>Nutzerverwaltung</li>
+                        <li class="fragment">ValidierungBeiPasswortAenderung</li>
+                        <li class="fragment">103279</li>
+                        <li class="fragment">HochgeladeneDateiMaximal5MB</li>
+                        <li class="fragment">GesperrterNutzerWirdNichtNach5MinutenEntsperrt</li>
+                    </ul>
+                </section>
+                <section data-background="https://i.imgur.com/iWKad22.jpg"></section>
+                <section>
+                    <h2>Besser</h2>
+                    <ul>
+                        <li>Kurze und prägnante Namen</li>
+                        <li class="fragment">Hierarchische Bezeichnungen</li>
+                        <li class="fragment">Keine bloße Zahl</li>
+                        <li class="fragment">CamelCase vermeiden, Wörter mit Minus trennen</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>feature/nutzerverwaltung</li>
+                        <li class="fragment">bugfix/validiere-passwort</li>
+                        <li class="fragment">release/v1.0.0</li>
+                        <li class="fragment">junk/ovale-buttons</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Warum den Slash als Hierarchie-Trenner?</h3>
+                    <ul>
+                        <li>Git behandelt die Hierarchie als Verzeichnisse</li>
+                        <li>Auto Complete in der Bash ist schneller</li>
+                        <li>Versch. grafische Tools (bspw. SourceTree) stellen die Branches ebenfalls als Ordner dar</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Alles nur Best Practices, wenn es einem gar nicht zusagt, kann man es auch komplett anders machen</p>
+                </section>
+                <section>
+                    <h2>Mit Branches arbeiten</h2>
+                </section>
+                <section>
+                    <pre>$ git branch develop
 $ git checkout develop</pre>
-					<pre>$ git checkout -b develop master</pre>
-				</section>
-				<section>
-					<h2>Fast-Forward vs. Recursive Merge</h2>
-				</section>
-				<section>
-					<h2>Rebasing</h2>
-				</section>
-				<section>
-					<h2>Synchronisation</h2>
-					<ul>
-						<li>Vermeiden von umfangreichem Merge am Ende</li>
-						<li><pre>$ git checkout feature/user-mgmt
-$ git merge develop</pre></li>
-					</ul>
-				</section>
-			</section>
+                    <pre>$ git checkout -b develop master</pre>
+                </section>
+                <section>
+                    <img src="images/15_create_branch_and_checkout.png" />
+                </section>
+                <section>
+                    <h2>Fast-Forward vs. Recursive Merge</h2>
+                </section>
+                <section>
+                    <h2>Rebasing</h2>
+                </section>
+                <section>
+                    <h2>Synchronisation</h2>
+                    <ul>
+                        <li>Vermeiden von umfangreichem Merge am Ende</li>
+                        <li>
+                            <pre>$ git checkout feature/user-mgmt
+$ git merge develop</pre>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <img src="images/16_merge_develop_into_feature.png" class="stretch" />
+                </section>
+                <section>
+                    <img src="images/16b_resolve_merge_conflicts.png" class="stretch" />
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Arbeiten mit Remote Repositories</h1>
+                </section>
+                <section>
+                    <h2>Vorhandenes Repository klonen</h2>
+                    <pre>$ git clone <i>Remote-URL</i></pre>
+                </section>
+                <section>
+                    <img src="images/1b_git_clone.png" />
+                </section>
+                <section>
+                    <h2>Änderungen abholen</h2>
+                    <pre>$ git fetch</pre>
+                </section>
+                <section>
+                    <img src="images/8_git_fetch.png" />
+                </section>
+                <section>
+                    <h2>Änderungen in das Arbeitsverzeichnis mergen</h2>
+                    <pre>$ git merge</pre>
+                    <p>&rarr; Entscheidet selbst, ob es ein recursive oder fast-forward Merge ist</p>
+                </section>
+                <section>
+                    <h2>Warum man git pull nicht verwenden sollte</h2>
+                </section>
+                <section>
+                    <h2>Workflow: Änderungen vom zentralen Repository integrieren</h2>
+                    <ul>
+                        <li class="alert">Kein pull verwenden</li>
+                        <li>
+                            Erst fetchen (
+                            <span class="highlight">git fetch</span>)
+                        </li>
+                        <li>
+                            Anschließend rebasen (
+                            <span class="highlight">git rebase</span>)
+                        </li>
+                        <li>
+                            Bei Merge-Konflikten:
+                            <span class="highlight">git mergetool</span>
+                            <ul>
+                                <li>
+                                    Anschließend
+                                    <span class="highlight">git rebase --continue</span> aufrufen
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <img src="images/18_git_aenderungen_in_repo_integrieren.png" class="stretch" />
+                </section>
+
+                <section>
+                    <h2 class="alert">Rebase niemals bei bereits veröffentlichten Commits anwenden!</h2>
+                </section>
+                <section>
+                    <h2>Lokale Commits veröffentlichen</h2>
+                    <pre>$ git push</pre>
+                    <p class="alert">&rarr; Immer nur für den Branch, in dem man sich gerade befindet</p>
+                </section>
+                <section>
+                    <img src="images/17_git_push.png" />
+                </section>
+            </section>
 
 
-
-			<section>
-				<section>
-					<h1>Arbeiten mit Remote Repositories</h1>
-				</section>
-				<section>
-					<h2>Vorhandenes Repository klonen</h2>
-					<pre>$ git clone <i>Remote-URL</i></pre>
-				</section>
-				<section>
-					<h2>Änderungen abholen</h2>
-					<pre>$ git fetch</pre>
-				</section>
-				<section>
-					<h2>Änderungen in das Arbeitsverzeichnis mergen</h2>
-					<pre>$ git merge</pre>
-					<p>&rarr; Entscheidet selbst, ob es ein recursive oder fast-forward Merge ist</p>
-				</section>
-				<section>
-					<h2>Warum man git pull nicht verwenden sollte</h2>
-				</section>
-				<section>
-					<h2>Workflow: Änderungen vom zentralen Repository integrieren</h2>
-					<ul>
-						<li class="alert">Kein pull verwenden</li>
-						<li>Erst fetchen (
-							<span class="highlight">git fetch</span>)</li>
-						<li>Anschließend rebasen (
-							<span class="highlight">git rebase</span>)</li>
-						<li>Bei Merge-Konflikten:
-							<span class="highlight">git mergetool</span>
-							<ul>
-								<li>Anschließend
-									<span class="highlight">git rebase --continue</span> aufrufen</li>
-							</ul>
-						</li>
-					</ul>
-					</ul>
-				</section>
-				<section>
-					<h2 class="alert">Rebase niemals bei bereits veröffentlichten Commits anwenden!</h2>
-				</section>
-				<section>
-					<h2>Lokale Commits veröffentlichen</h2>
-					<pre>$ git push</pre>
-					<p class="alert">&rarr; Immer nur für den Branch, in dem man sich gerade befindet</p>
-				</section>
-			</section>
-
-
-			<section>
-				<section>
-					<h1>Learning by doing...</h1>
-				</section>
-				<section>
-					<h2>Aufgabe</h2>
-					<p>Erstellen einer Datei mit sechs Dingen, jedes repräsentiert dabei ein Feature</p>
-				</section>
-				<section>
-					<h3>Repository klonen</h3>
-					<pre style="font-size: 0.65em;">https://github.com/tklepzig/git-alice-<b class="highlight">[Team-Nummer: 1-6]</b>.git</pre>
-					<br />
-					<p>Beispiel Team 1</p>
-					<pre style="font-size: 0.9em;">https://github.com/tklepzig/git-alice-<b class="highlight">1</b>.git</pre>
-				</section>
-				<section>
-					<h3>Inhalt von things.txt</h3>
-					<pre style="font-size: 0.9em;">Six impossible things before breakfast:</pre>
-				</section>
-				<section>
-					<h3>Neuen Branch <b class="highlight">develop</b> erstellen und von <b class="highlight">master</b> abzweigen</h3>
-				</section>
-				<section>
-					<h3>Neue Zeile</h3>
-					<pre style="font-size: 0.9em;">1. There's a potion that can make you shrink.</pre>
-				</section>
-				<section>
-					<h3>Neue Zeile</h3>
-					<pre>2. And a fruit that can make you grow.</pre>
-				</section>
-				<section>
-					<h3>Commit often, perfect later</h3>
-				</section>
-				<section>
-					<h3>Letzten Commit korrigieren</h3>
-					<pre style="font-size: 0.9em;">2. And a <i style="text-decoration: line-through;">fruit</i> <b class="highlight">cake</b> that can make you grow.</pre>
-				</section>
-				<section>
-					<h3>Zum Remote Repository pushen</h3>
-				</section>
-				<section>
-					<h3>Neue Zeile</h3>
-					<pre>3. Animals can talk.</pre>
-				</section>
-				<section>
-					<h3>Neue Zeile</h3>
-					<pre>4. Dogs can disappear.</pre>
-				</section>
-				<section>
-					<h3>Letzten Commit korrigieren</h3>
-					<pre>3. <i style="text-decoration: line-through;">Dogs</i> <b class="highlight">Cats</b> can disappear.</pre>
-					<h3 class="alert">Wenn committed: Warten</h3>
-				</section>
-				<section>
-					<h3>Zum Remote Repository pushen</h3>
-				</section>
-				<section>
-					<h3>Push ist nicht erlaubt</h3>
-					<ul>
-						<li>Änderungen vom Remote Repository holen</li>
-						<li>Anschließend pushen</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Neue Zeile</h3>
-					<pre>5. There is a place called Wonderland.</pre>
-				</section>
-				<section>
-					<h3>Neue Zeile</h3>
-					<pre>6. I can slay the Jabberwocky.</pre>
-					<h3 class="alert">Wenn committed: Warten</h3>
-				</section>
-				<section>
-					<h3>Zum Remote Repository pushen</h3>
-				</section>
-				<section>
-					<h3>Push ist nicht erlaubt</h3>
-					<ul>
-						<li>Änderungen vom Remote Repository holen</li>
-						<li>Merge-Konflikte auflösen</li>
-						<li>Anschließend pushen</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Release erstellen</h3>
-					<ul>
-						<li><b class="highlight">develop</b> nach <b class="highlight">master</b> mergen und pushen</li>
-						<li>Tag <b class="highlight">v1.0.0</b> erstellen und pushen</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Fertige Datei:</h3>
-					<pre style="font-size: 0.9em;">Six impossible things before breakfast:
+            <section>
+                <section>
+                    <h1>Learning by doing...</h1>
+                </section>
+                <section>
+                    <h2>Aufgabe</h2>
+                    <p>Erstellen einer Datei mit sechs Dingen, jedes repräsentiert dabei ein Feature</p>
+                </section>
+                <section>
+                    <h3>Repository klonen</h3>
+                    <pre style="font-size: 0.65em;">https://github.com/tklepzig/git-alice-<b class="highlight">[Team-Nummer: 1-6]</b>.git</pre>
+                    <br />
+                    <p>Beispiel Team 1</p>
+                    <pre style="font-size: 0.9em;">https://github.com/tklepzig/git-alice-<b class="highlight">1</b>.git</pre>
+                </section>
+                <section>
+                    <h3>Inhalt von things.txt</h3>
+                    <pre style="font-size: 0.9em;">Six impossible things before breakfast:</pre>
+                </section>
+                <section>
+                    <h3>Neuen Branch <b class="highlight">develop</b> erstellen und von <b class="highlight">master</b> abzweigen</h3>
+                </section>
+                <section>
+                    <h3>Neue Zeile</h3>
+                    <pre style="font-size: 0.9em;">1. There's a potion that can make you shrink.</pre>
+                </section>
+                <section>
+                    <h3>Neue Zeile</h3>
+                    <pre>2. And a fruit that can make you grow.</pre>
+                </section>
+                <section>
+                    <h3>Commit often, perfect later</h3>
+                </section>
+                <section>
+                    <h3>Letzten Commit korrigieren</h3>
+                    <pre style="font-size: 0.9em;">2. And a <i style="text-decoration: line-through;">fruit</i> <b class="highlight">cake</b> that can make you grow.</pre>
+                </section>
+                <section>
+                    <h3>Zum Remote Repository pushen</h3>
+                </section>
+                <section>
+                    <h3>Neue Zeile</h3>
+                    <pre>3. Animals can talk.</pre>
+                </section>
+                <section>
+                    <h3>Neue Zeile</h3>
+                    <pre>4. Dogs can disappear.</pre>
+                </section>
+                <section>
+                    <h3>Letzten Commit korrigieren</h3>
+                    <pre>3. <i style="text-decoration: line-through;">Dogs</i> <b class="highlight">Cats</b> can disappear.</pre>
+                    <h3 class="alert">Wenn committed: Warten</h3>
+                </section>
+                <section>
+                    <h3>Zum Remote Repository pushen</h3>
+                </section>
+                <section>
+                    <h3>Push ist nicht erlaubt</h3>
+                    <ul>
+                        <li>Änderungen vom Remote Repository holen</li>
+                        <li>Anschließend pushen</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Neue Zeile</h3>
+                    <pre>5. There is a place called Wonderland.</pre>
+                </section>
+                <section>
+                    <h3>Neue Zeile</h3>
+                    <pre>6. I can slay the Jabberwocky.</pre>
+                    <h3 class="alert">Wenn committed: Warten</h3>
+                </section>
+                <section>
+                    <h3>Zum Remote Repository pushen</h3>
+                </section>
+                <section>
+                    <h3>Push ist nicht erlaubt</h3>
+                    <ul>
+                        <li>Änderungen vom Remote Repository holen</li>
+                        <li>Merge-Konflikte auflösen</li>
+                        <li>Anschließend pushen</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Release erstellen</h3>
+                    <ul>
+                        <li><b class="highlight">develop</b> nach <b class="highlight">master</b> mergen und pushen</li>
+                        <li>Tag <b class="highlight">v1.0.0</b> erstellen und pushen</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Fertige Datei:</h3>
+                    <pre style="font-size: 0.9em;">Six impossible things before breakfast:
 1. There's a potion that can make you shrink.
 2. And a cake that can make you grow.
 3. Animals can talk.
 4. Cats can disappear.
 5. There is a place called Wonderland.
 6. I can slay the Jabberwocky.</pre>
-				</section>
-			</section>
-			<section>
-				<h1>Fragen? Fragen!</h1>
-			</section>
-		</div>
-	</div>
+                </section>
+            </section>
+            <section>
+                <h1>Fragen? Fragen!</h1>
+            </section>
+        </div>
+    </div>
 
-	<script src="lib/js/head.min.js"></script>
-	<script src="js/reveal.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-	<script>
-		// Full list of configuration options available at:
-		// https://github.com/hakimel/reveal.js#configuration
-		Reveal.initialize({
-			controls: true,
-			progress: true,
-			history: true,
-			center: true,
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
 
-			transition: 'convex', // none/fade/slide/convex/concave/zoom
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
 
-			// Optional reveal.js plugins
-			dependencies: [{
-				src: 'lib/js/classList.js',
-				condition: function() {
-					return !document.body.classList;
-				}
-			}, {
-				src: 'plugin/markdown/marked.js',
-				condition: function() {
-					return !!document.querySelector('[data-markdown]');
-				}
-			}, {
-				src: 'plugin/markdown/markdown.js',
-				condition: function() {
-					return !!document.querySelector('[data-markdown]');
-				}
-			}, {
-				src: 'plugin/highlight/highlight.js',
-				async: true,
-				callback: function() {
-					hljs.initHighlightingOnLoad();
-				}
-			}, {
-				src: 'plugin/zoom-js/zoom.js',
-				async: true
-			}, {
-				src: 'plugin/notes/notes.js',
-				async: true
-			}]
-		});
-	</script>
+            // Optional reveal.js plugins
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function () {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }]
+        });
+    </script>
 
 </body>
 
