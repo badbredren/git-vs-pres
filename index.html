@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -148,7 +148,8 @@ $ git &lt;verb&gt; --help</pre>
                 <section>
                     <img src="images/10_compare_with_unmodified.png" class="left" alt="" />
                     <img src="images/11_compare_files.png" class="right" />
-                </section><section>
+                </section>
+                <section>
                     <h2>Änderungen stagen und committen</h2>
                     <pre>$ git add file-1.txt
 $ git commit -m "changed file"</pre>
@@ -172,6 +173,13 @@ $ git commit -m "changed file"</pre>
                     <pre>$ git l</pre>
                 </section>
                 <section>
+                    <h2>Dateien und Ordner von der Versionsverwaltung ausschließen</h2>
+                    <br>
+                    <h2><span class="highlight">.gitignore</span></h2>
+                    <pre>[Dd]ebug/</pre>
+                    <pre>*.dll</pre>
+                </section>
+                <section>
                     <h2>Tags</h2>
                     <ul>
                         <li>Entspricht einem <i>Label</i> im TFVC</li>
@@ -179,7 +187,7 @@ $ git commit -m "changed file"</pre>
                     </ul>
                 </section>
                 <section>
-                    <img src="images/14_create_tag.png" class="stretch"/>
+                    <img src="images/14_create_tag.png" class="stretch" />
                 </section>
                 <section>
                     <h2>Stash</h2>
@@ -222,8 +230,8 @@ $ git commit -m "changed file"</pre>
                     <ul>
                         <li>Darf kein ASCII Steuerzeichen enthalten</li>
                         <li class="fragment">
-                            Keines der folgenden Zeichen darf vorkommen: Leerzeichen, Tilde (~), Caret (^), Doppelpunkt, Fragezeichen, Asterisk
-                            (*), Öffnende eckige Klammer ([)
+                            Keines der folgenden Zeichen darf vorkommen: Leerzeichen, Tilde (~), Caret (^), Doppelpunkt, Fragezeichen, Asterisk (*),
+                            Öffnende eckige Klammer ([)
                         </li>
                         <li class="fragment">Darf kein Backslash enthalten</li>
                     </ul>
@@ -276,7 +284,7 @@ $ git checkout develop</pre>
                     <pre>$ git checkout -b develop master</pre>
                 </section>
                 <section>
-                    <img src="images/15_create_branch_and_checkout.png" class="stretch"/>
+                    <img src="images/15_create_branch_and_checkout.png" class="stretch" />
                 </section>
                 <section>
                     <h2>Fast-Forward vs. Recursive Merge</h2>
@@ -295,13 +303,13 @@ $ git merge develop</pre>
                     </ul>
                 </section>
                 <section>
-                    <img src="images/16_merge_develop_into_feature.png" class="stretch"/>
+                    <img src="images/16_merge_develop_into_feature.png" class="stretch" />
                 </section>
                 <section>
                     <img src="images/16_merge_develop_into_feature2.png" class="stretch" />
                 </section>
                 <section>
-                    <img src="images/16b_resolve_merge_conflicts.png" class="stretch"/>
+                    <img src="images/16b_resolve_merge_conflicts.png" class="stretch" />
                 </section>
                 <section>
                     <img src="images/16b_resolve_merge_conflicts2.png" class="stretch" />
@@ -361,7 +369,7 @@ $ git merge develop</pre>
                     <img src="images/18_git_aenderungen_in_repo_integrieren.png" class="stretch" />
                 </section>
                 <section>
-                    <img src="images/18_git_aenderungen_in_repo_integrieren2.png" class="stretch"/>
+                    <img src="images/18_git_aenderungen_in_repo_integrieren2.png" class="stretch" />
                 </section>
                 <section>
                     <img src="images/18_git_aenderungen_in_repo_integrieren3.png" class="stretch" />
@@ -375,7 +383,7 @@ $ git merge develop</pre>
                     <p class="alert">&rarr; Immer nur für den Branch, in dem man sich gerade befindet</p>
                 </section>
                 <section>
-                    <img src="images/17_git_push.png" class="stretch"/>
+                    <img src="images/17_git_push.png" class="stretch" />
                 </section>
             </section>
 
@@ -504,23 +512,23 @@ $ git merge develop</pre>
             // Optional reveal.js plugins
             dependencies: [{
                 src: 'lib/js/classList.js',
-                condition: function () {
+                condition: function() {
                     return !document.body.classList;
                 }
             }, {
                 src: 'plugin/markdown/marked.js',
-                condition: function () {
+                condition: function() {
                     return !!document.querySelector('[data-markdown]');
                 }
             }, {
                 src: 'plugin/markdown/markdown.js',
-                condition: function () {
+                condition: function() {
                     return !!document.querySelector('[data-markdown]');
                 }
             }, {
                 src: 'plugin/highlight/highlight.js',
                 async: true,
-                callback: function () {
+                callback: function() {
                     hljs.initHighlightingOnLoad();
                 }
             }, {
