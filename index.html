@@ -161,29 +161,12 @@ $ git commit -m "changed file"</pre>
                 </section>
                 <section>
                     <img src="images/lifecycle_step-4.png" class="stretch" alt="">
-                </section>
-                <section>
-                    <h2>Staging Area</h2>
-                    <pre>$ git add [-p|--patch] file-1.txt</pre>
-                    <pre>$ git reset file-1.txt</pre>
-                </section>
-                <section>
-                    <h2>History anzeigen</h2>
-                    <pre>$ git log</pre>
-                    <pre>$ git l</pre>
-                </section>
-                <section>
-                    <h2>Dateien und Ordner von der Versionsverwaltung ausschließen</h2>
-                    <br>
-                    <h2><span class="highlight">.gitignore</span></h2>
-                    <pre>[Dd]ebug/</pre>
-                    <pre>*.dll</pre>
-                </section>
+                </section>               
                 <section>
                     <h2>Tags</h2>
                     <ul>
                         <li>Entspricht einem <i>Label</i> im TFVC</li>
-                        <li><pre>$ git tag v1.0.0</pre></li>
+                        <li><pre>$ git tag Sprintresult-2016-03</pre></li>
                     </ul>
                 </section>
                 <section>
@@ -259,9 +242,9 @@ $ git commit -m "changed file"</pre>
                 <section>
                     <ul>
                         <li>feature/nutzerverwaltung</li>
-                        <li class="fragment">bugfix/validiere-passwort</li>
-                        <li class="fragment">release/v1.0.0</li>
-                        <li class="fragment">junk/ovale-buttons</li>
+                        <li class="fragment">hotfix/validiere-passwort</li>
+                        <li class="fragment">release/Sprint-2016-03</li>
+                        <li class="fragment">private/schulzet-ovale-buttons</li>
                     </ul>
                 </section>
                 <section>
@@ -269,7 +252,7 @@ $ git commit -m "changed file"</pre>
                     <ul>
                         <li>Git behandelt die Hierarchie als Verzeichnisse</li>
                         <li>Auto Complete in der Bash ist schneller</li>
-                        <li>Versch. grafische Tools (bspw. SourceTree) stellen die Branches ebenfalls als Ordner dar</li>
+                        <li>Versch. grafische Tools (bspw. SourceTree / Visual Studio) stellen die Branches ebenfalls als Ordner dar</li>
                     </ul>
                 </section>
                 <section>
@@ -285,12 +268,6 @@ $ git checkout develop</pre>
                 </section>
                 <section>
                     <img src="images/15_create_branch_and_checkout.png" class="stretch" />
-                </section>
-                <section>
-                    <h2>Fast-Forward vs. Recursive Merge</h2>
-                </section>
-                <section>
-                    <h2>Rebasing</h2>
                 </section>
                 <section>
                     <h2>Synchronisation</h2>
@@ -336,7 +313,6 @@ $ git merge develop</pre>
                 <section>
                     <h2>Änderungen in das Arbeitsverzeichnis mergen</h2>
                     <pre>$ git merge</pre>
-                    <p>&rarr; Entscheidet selbst, ob es ein recursive oder fast-forward Merge ist</p>
                 </section>
                 <section>
                     <h2>Warum man git pull nicht verwenden sollte</h2>
